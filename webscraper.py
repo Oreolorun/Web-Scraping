@@ -1,3 +1,13 @@
+#  importing libraries
+from urllib.request import urlopen
+import urllib.request
+from bs4 import BeautifulSoup
+import numpy as np
+import os
+import requests
+import cv2
+from tqdm import tqdm
+
 class Scraper:
     """
     This class is used to create an image web scraper
@@ -29,16 +39,6 @@ class Scraper:
         """
         This method extracts img tags. Inspect to extract src.
         """
-        #  importing libraries
-        from urllib.request import urlopen
-        import urllib.request
-        from bs4 import BeautifulSoup
-        import numpy as np
-        import os
-        import requests
-        import cv2
-        from tqdm import tqdm
-
         images = []
         for i in tqdm(range(pages)):
             request = urllib.request.Request(os.path.join(url, f'?page={str(i)}'),
@@ -56,16 +56,6 @@ class Scraper:
         """
         This method downloads scraped images into a specified directory
         """
-        #  importing libraries
-        from urllib.request import urlopen
-        import urllib.request
-        from bs4 import BeautifulSoup
-        import numpy as np
-        import os
-        import requests
-        import cv2
-        from tqdm import tqdm
-
         try:
             os.mkdir(self.directory)
         except FileExistsError:
@@ -86,16 +76,10 @@ class Scraper:
         print('Done!')
 
     def duplicate_check(self):
-        #  importing libraries
-        from urllib.request import urlopen
-        import urllib.request
-        from bs4 import BeautifulSoup
-        import numpy as np
-        import os
-        import requests
-        import cv2
-        from tqdm import tqdm
-
+		"""
+		This method checks for the presence of duplicate images
+		in the data directory
+		"""
         #  creating empty lists to hold images
         images = []
         temp_list = []
@@ -165,19 +149,9 @@ class Scraper:
 
     def find_duplicates(self, filenames=[]):
         """
-        This method checks if particular images are duplicated providing the option
+        This method checks if particular images are duplicated, providing the option
         of deleting them or not.
         """
-        #  importing libraries
-        from urllib.request import urlopen
-        import urllib.request
-        from bs4 import BeautifulSoup
-        import numpy as np
-        import os
-        import requests
-        import cv2
-        from tqdm import tqdm
-
         to_check = []
         #  creating a list to hold duplicates
         all_duplicates = []
@@ -229,16 +203,6 @@ class Scraper:
         """
         This method deletes all instances of a particular image.
         """
-        #  importing libraries
-        from urllib.request import urlopen
-        import urllib.request
-        from bs4 import BeautifulSoup
-        import numpy as np
-        import os
-        import requests
-        import cv2
-        from tqdm import tqdm
-
         to_check = []
         #  creating a list to hold duplicates
         all_duplicates = []
